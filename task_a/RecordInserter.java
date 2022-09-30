@@ -22,8 +22,9 @@ public class RecordInserter implements Runnable {
                 String name = names.getRandom();
                 String phone = phones.getRandom();
                 FileWriter fw = new FileWriter(path, true);
-                fw.write(name + " - " + phone + "\n");
-                System.out.println(" + " + name + " " + phone + " " + Thread.currentThread().getName());
+                String line = name + " " + phone;
+                fw.write(line + "\n");
+                System.out.println(" + " + line);
                 fw.close();
             }
             catch (IOException e) {
