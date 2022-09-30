@@ -1,4 +1,5 @@
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,13 +18,14 @@ public class StringList {
         random = new Random();
     }
 
-    public StringList(Path path) {
+    public StringList(String path) {
         this.list = new ArrayList<>();
         random = new Random();
 
         Scanner sc;
         try {
-            sc = new Scanner(path);
+            Path file = Paths.get(path);
+            sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String line = sc.nextLine().trim();
                 list.add(line);
